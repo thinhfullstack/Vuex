@@ -4,28 +4,13 @@
 </template> 
 
 <script>
-import { mapState } from 'vuex';
 import HomeVuex from './components/HomeVuex.vue';
 
 export default {
   name: 'App',
   components: {
     HomeVuex
-},
-data() {
-  return {
-
   }
-},
-created() {
-  console.log(this.userInfo);
-  console.log(this.messageInfo);
-},
-
-computed: mapState({
-  userInfo: state => state.users,
-  messageInfo: state => state.message
-})
 }
 </script>
 
