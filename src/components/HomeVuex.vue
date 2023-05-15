@@ -4,6 +4,8 @@
         <li :key="index" v-for="(user, index) in users">{{ user }}</li>
         <button @click="changeMess()">Change</button>
         <li :key="index" v-for="(getProduct, index) in getProducts">{{ getProduct.name }}</li>
+        <h3>Count: {{ $store.state.count }}</h3>
+        <button @click="upCountValue()">Increment</button>
     </div>
 </template>
 
@@ -12,7 +14,7 @@ import { mapState, mapGetters, mapMutations } from 'vuex';
 export default {
     name: 'HomeVuex',
 
-    data() {
+    data() { 
         return {
 
         }
@@ -30,7 +32,11 @@ export default {
         changeMess() {
             this.changeMessage()
         },
-        ...mapMutations(['changeMessage'])
+        ...mapMutations(['changeMessage']),
+
+        upCountValue() {
+            this.$store.dispatch('changeUpCount', 1)
+        }
     }
 }
 </script>
